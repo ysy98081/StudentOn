@@ -1,0 +1,46 @@
+# 작업 목록
+
+- [x] 개발 서버 시작 <!-- id: 0 -->
+- [x] Tailwind CSS PostCSS 설정 수정 <!-- id: 1 -->
+- [x] index.css의 Tailwind CSS v4 구문 수정 <!-- id: 2 -->
+- [x] 현재 학생 목록 및 상세 구현 분석 <!-- id: 3 -->
+- [x] 분할 뷰 및 코멘트 구현 계획 작성 <!-- id: 4 -->
+- [x] `Students.tsx`를 분할 레이아웃으로 리팩토링 <!-- id: 5 -->
+- [x] 분할 뷰용 `StudentDetail` 컴포넌트 구현 <!-- id: 6 -->
+- [x] 선생님 코멘트 기능 추가 <!-- id: 7 -->
+- [x] 변경 사항 확인 <!-- id: 8 -->
+- [x] 스토어에 `deleteStudent` 액션 추가 <!-- id: 9 -->
+- [x] `StudentDetail`에 삭제 버튼 추가 <!-- id: 10 -->
+- [x] `StudentDetail` 코멘트 섹션에서 시스템 기록 필터링 <!-- id: 11 -->
+- [x] 변경 사항 확인 <!-- id: 12 -->
+- [x] `StudentDetail`에 이름 수정 구현 <!-- id: 13 -->
+- [x] 이름 수정 확인 <!-- id: 14 -->
+- [x] `index.html` 및 UI 컴포넌트에서 사이트 이름을 "StudentOn"으로 변경 <!-- id: 15 -->
+- [x] `Teacher` 인터페이스에 `phoneNumber` 추가 <!-- id: 16 -->
+- [x] 스토어에 `updateTeacher` 액션 추가 <!-- id: 17 -->
+- [x] 선생님 수정 UI 구현 (모달 또는 인라인) <!-- id: 18 -->
+- [x] 선생님 수정 및 코멘트 유지 확인 <!-- id: 19 -->
+- [x] `docs/`의 프로젝트 문서 업데이트 <!-- id: 20 -->
+- [x] `Dashboard`에서 "최근 활동" 제거 <!-- id: 21 -->
+- [x] 학년에 따라 `StudentDetail`/`StudentList`의 선생님 드롭다운 필터링 <!-- id: 22 -->
+- [x] `TeacherList`에 학년 필터 추가 <!-- id: 23 -->
+- [x] 필터링 및 대시보드 변경 사항 확인 <!-- id: 24 -->
+- [x] `Student` 인터페이스에 `birthDate`, `gender`, `salvationDate`, `address` 추가 <!-- id: 25 -->
+- [x] `StudentList` 추가 양식에 새 필드 포함하도록 업데이트 <!-- id: 26 -->
+- [x] `StudentDetail`에 새 필드 표시 및 수정 업데이트 <!-- id: 27 -->
+- [x] 새 필드 데이터 지속성 확인 <!-- id: 28 -->
+- [x] `StudentDetail`에서 생년월일과 성별 UI 분리 <!-- id: 29 -->
+- [x] 코멘트 작성 권한을 담임 선생님으로 제한 <!-- id: 33 -->
+- [x] `Student` 및 `Teacher` 인터페이스에 `profileImage` 필드 추가 <!-- id: 34 -->
+- [x] `StudentList` 학생 추가 양식에 사진 업로드 추가 <!-- id: 35 -->
+- [x] `StudentDetail`에 사진 표시 및 수정 기능 추가 <!-- id: 36 -->
+- [x] `TeacherList` 선생님 추가 및 목록에 사진 기능 추가 <!-- id: 37 -->
+- [x] 사진 기능 검증 <!-- id: 38 -->
+- [x] 선생님 수정 시 사진 변경 기능 추가 <!-- id: 40 -->
+- [x] 학생 추가 시 학년 선택에 따라 선생님 목록 필터링 <!-- id: 47 -->
+- [x] `PromotionModal` 등반/졸업 시 학년 선택에 따라 선생님 목록 필터링 <!-- id: 48 -->
+- [x] 선생님 "반" (1반~10반) 선택 기능 추가 <!-- id: 49 -->
+- [x] 학생 추가/이동 시 선생님이 배정된 반만 선택하여 필터링 <!-- id: 50 -->
+- [x] `StudentList`/`PromotionModal`에서 별도의 반 선택 필터 제거 (선생님 정보에만 표시) <!-- id: 51 -->
+- [x] `TeacherList` 입력 폼에서 학년과 반 선택을 나란히 배치 <!-- id: 52 -->
+- [x] `PromotionModal` 상태 변경 시 '졸업' 옵션 추가 <!-- id: 53 -->
