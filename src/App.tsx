@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Students from './pages/Students';
 import Teachers from './pages/Teachers';
+import DataManagement from './components/DataManagement';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="students" element={<Students />} />
           <Route path="teachers" element={<Teachers />} />
+          <Route path="data-management" element={<DataManagement />} />
         </Route>
       </Routes>
     </BrowserRouter>

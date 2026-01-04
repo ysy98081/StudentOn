@@ -13,6 +13,7 @@ export interface Student {
     id: string;
     name: string;
     parentPhone: string;
+    parentName?: string;
     grade: string;
     currentTeacherId: string | null;
     birthDate?: string;
@@ -44,6 +45,7 @@ interface StoreState {
     updateTeacher: (id: string, data: Partial<Teacher>) => void;
     deleteTeacher: (id: string) => void;
     deleteStudent: (id: string) => void;
+    setAllData: (students: Student[], teachers: Teacher[]) => void;
 }
 
 export const useStore = create<StoreState>()(
@@ -51,6 +53,12 @@ export const useStore = create<StoreState>()(
         (set) => ({
             students: [],
             teachers: [],
+
+            setAllData: (students, teachers) =>
+                set({
+                    students,
+                    teachers
+                }),
 
             addStudent: (studentData) =>
                 set((state) => ({

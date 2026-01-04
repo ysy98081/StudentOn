@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Users, GraduationCap } from 'lucide-react';
+import { LayoutDashboard, Users, GraduationCap, Database } from 'lucide-react';
 import clsx from 'clsx';
 
 export default function Layout() {
@@ -9,6 +9,7 @@ export default function Layout() {
         { path: '/dashboard', label: '대시보드', icon: LayoutDashboard },
         { path: '/students', label: '학생 관리', icon: Users },
         { path: '/teachers', label: '선생님 관리', icon: GraduationCap },
+        { path: '/data-management', label: '데이터 관리', icon: Database },
     ];
 
     return (

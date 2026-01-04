@@ -17,6 +17,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
     // Form State
     const [name, setName] = useState('');
     const [parentPhone, setParentPhone] = useState('');
+    const [parentName, setParentName] = useState('');
     const [grade, setGrade] = useState('');
     const [teacherId, setTeacherId] = useState('');
     const [birthDate, setBirthDate] = useState('');
@@ -45,6 +46,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
         addStudent({
             name,
             parentPhone,
+            parentName: parentName || undefined,
             grade,
             currentTeacherId: teacherId || null,
             birthDate: birthDate || undefined,
@@ -56,6 +58,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
 
         setName('');
         setParentPhone('');
+        setParentName('');
         setGrade('');
         setTeacherId('');
         setBirthDate('');
@@ -72,7 +75,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
     );
 
     return (
-        <div className="space-y-6 h-full flex flex-col">
+        <div className="space-y-6 h-full flex flex-col overflow-hidden">
             <div className="flex flex-col sm:flex-row justify-between gap-4 shrink-0">
                 <div className="relative flex-1 max-w-md">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
@@ -94,10 +97,10 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
             </div>
 
             {isAdding && (
-                <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 animate-in fade-in slide-in-from-top-4 shrink-0">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">새 학생 등록</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="md:col-span-2 flex justify-center">
+                <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 animate-in fade-in slide-in-from-top-4 shrink-0 max-h-[50vh] overflow-y-auto">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 sticky top-0 bg-white z-10">새 학생 등록</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="md:col-span-3 flex justify-center mb-4">
                             <div className="relative">
                                 <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border border-gray-200">
                                     {profileImage ? (
@@ -112,8 +115,9 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                                 </label>
                             </div>
                         </div>
+
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">이름</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">이름 <span className="text-red-500">*</span></label>
                             <input
                                 required
                                 type="text"
@@ -124,7 +128,17 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">부모님 연락처</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">부모님 성함</label>
+                            <input
+                                type="text"
+                                value={parentName}
+                                onChange={(e) => setParentName(e.target.value)}
+                                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
+                                placeholder="부모님 성함"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">부모님 연락처 <span className="text-red-500">*</span></label>
                             <input
                                 required
                                 type="tel"
@@ -135,7 +149,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">학년</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">학년 <span className="text-red-500">*</span></label>
                             <select
                                 required
                                 value={grade}
@@ -152,7 +166,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">담당 선생님 (선택)</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">담당 선생님</label>
                             <select
                                 value={teacherId}
                                 onChange={(e) => setTeacherId(e.target.value)}
@@ -191,7 +205,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">구원일 (선택)</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">구원일</label>
                             <input
                                 type="date"
                                 value={salvationDate}
@@ -199,7 +213,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                                 className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
                             />
                         </div>
-                        <div className="md:col-span-2">
+                        <div className="md:col-span-3">
                             <label className="block text-sm font-medium text-gray-700 mb-1">주소</label>
                             <input
                                 type="text"
@@ -210,7 +224,7 @@ export default function StudentList({ selectedId, onSelect }: StudentListProps) 
                             />
                         </div>
                     </div>
-                    <div className="flex justify-end gap-3 mt-6">
+                    <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-gray-100">
                         <button
                             type="button"
                             onClick={() => setIsAdding(false)}

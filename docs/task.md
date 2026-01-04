@@ -44,3 +44,7 @@
 - [x] `StudentList`/`PromotionModal`에서 별도의 반 선택 필터 제거 (선생님 정보에만 표시) <!-- id: 51 -->
 - [x] `TeacherList` 입력 폼에서 학년과 반 선택을 나란히 배치 <!-- id: 52 -->
 - [x] `PromotionModal` 상태 변경 시 '졸업' 옵션 추가 <!-- id: 53 -->
+- [x] 빌드 오류 수정 <!-- id: 54 -->
+- [x] `Student` 인터페이스에 `parentName` 추가 <!-- id: 55 -->
+- [x] 엑셀 내보내기/가져오기 헤더 한글화 및 `parentName` 포함 <!-- id: 56 -->
+- [x] `StudentList` 및 `StudentDetail`에 부모님 성함 입력 추가 <!-- id: 57 -->

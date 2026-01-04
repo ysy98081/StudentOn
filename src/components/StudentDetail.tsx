@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useStore } from '../store/useStore';
 import { Phone, GraduationCap, MessageSquare, Send, X, Trash2, Pencil, Check, MapPin, Calendar, Heart, User, Camera } from 'lucide-react';
@@ -27,6 +26,7 @@ export default function StudentDetail({ studentId, onClose }: StudentDetailProps
     const [editBirthDate, setEditBirthDate] = useState('');
     const [editSalvationDate, setEditSalvationDate] = useState('');
     const [editAddress, setEditAddress] = useState('');
+    const [editParentName, setEditParentName] = useState('');
 
     const handleImageUpdate = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -78,6 +78,7 @@ export default function StudentDetail({ studentId, onClose }: StudentDetailProps
         setEditBirthDate(student.birthDate || '');
         setEditSalvationDate(student.salvationDate || '');
         setEditAddress(student.address || '');
+        setEditParentName(student.parentName || '');
         setIsEditingProfile(true);
     };
 
@@ -86,6 +87,7 @@ export default function StudentDetail({ studentId, onClose }: StudentDetailProps
             birthDate: editBirthDate || undefined,
             salvationDate: editSalvationDate || undefined,
             address: editAddress || undefined,
+            parentName: editParentName || undefined,
         });
         setIsEditingProfile(false);
     };
@@ -277,8 +279,26 @@ export default function StudentDetail({ studentId, onClose }: StudentDetailProps
                                 )}
                             </div>
                         </div>
+                        <div className="p-3 bg-gray-50 rounded-lg col-span-2">
+                            <span className="text-gray-500 block text-xs mb-1">부모님 성함</span>
+                            <div className="font-medium text-gray-900 flex items-center gap-2">
+                                <User size={14} className="text-gray-400" />
+                                {isEditingProfile ? (
+                                    <input
+                                        type="text"
+                                        value={editParentName}
+                                        onChange={(e) => setEditParentName(e.target.value)}
+                                        className="bg-white border border-gray-200 rounded px-2 py-1 ml-[-8px] text-sm w-full"
+                                        placeholder="부모님 성함 입력"
+                                    />
+                                ) : (
+                                    student.parentName || '-'
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 {/* Actions */}
                 <div className="flex gap-2">
                     <button
